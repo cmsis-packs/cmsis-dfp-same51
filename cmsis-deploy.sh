@@ -1,9 +1,9 @@
 #!/bin/bash
 
-name=cmsis-dfp-template
-vendor=template
-version=0.0
-source_url=
+name=cmsis-dfp-same51
+vendor=Atmel
+version=1.1.139
+source_url=http://packs.download.atmel.com/$vendor.SAME51_DFP.$version.atpack
 
 build_dir='cmsis_build'
 deploy_dir='cmsis_deploy'
@@ -55,10 +55,14 @@ extract() {
 
 deploy() {
     echo "deploying..."
-    cp -r $build_dir/Device $deploy_dir
-    cp -r $build_dir/Documents $deploy_dir
-    cp -r $build_dir/Flash $deploy_dir
-    cp -r $build_dir/SVD $deploy_dir
+    cp -r $build_dir/armcc $deploy_dir
+    cp -r $build_dir/gcc $deploy_dir
+    cp -r $build_dir/iar $deploy_dir
+    cp -r $build_dir/include $deploy_dir
+    cp -r $build_dir/include_mcc $deploy_dir
+    cp -r $build_dir/keil $deploy_dir
+    cp -r $build_dir/svd $deploy_dir
+    cp -r $build_dir/templates $deploy_dir
 }
 
 prepare
